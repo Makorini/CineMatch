@@ -9,6 +9,7 @@ document.getElementById("preferences-form")?.addEventListener("submit", function
     const genre = (document.getElementById('genre') as HTMLSelectElement).value;
     const duration = (document.getElementById('duration') as HTMLInputElement).value;
     const year = (document.getElementById('year') as HTMLInputElement).value;
+    const director = (document.getElementById('director') as HTMLInputElement).value;
 
     // Faz a requisição para o backend
     fetch("http://localhost:3002/movies") // <-- backend NestJS
@@ -20,7 +21,8 @@ document.getElementById("preferences-form")?.addEventListener("submit", function
                 return (
                     (genre === 'all' || (movie.genre && movie.genre.includes(genre))) &&
                     (!duration || (movie.runtime && parseInt(movie.runtime) <= Number(duration))) &&
-                    (!year || (movie.releasedYear && movie.releasedYear >= Number(year)))
+                    (!year || (movie.releasedYear && movie.releasedYear >= Number(year))) &&
+                    (!director || (movie.director && movie.director.toLowerCase().includes(director.toLowerCase())))
                 );
             });
 
@@ -91,8 +93,8 @@ function showAddMovieForm() {
                 <h3>Adicionar Novo Filme</h3>
                 <form id="add-movie-form">
                     <input type="text" id="title" placeholder="Título" required>
+                    <input type="text" id="director" placeholder="Diretor" required>
                     <input type="text" id="genres" placeholder="Gêneros (ex: Ação, Drama)" required>
-                    <input type="text" id="language" placeholder="Idioma" required>
                     <input type="text" id="duration" placeholder="Duração (ex: 120 minutos)" required>
                     <input type="number" id="year" placeholder="Ano" required>
                     <input type="url" id="image" placeholder="URL da Imagem (opcional)">
