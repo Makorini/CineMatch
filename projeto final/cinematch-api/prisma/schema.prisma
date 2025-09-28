@@ -1,0 +1,32 @@
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Movie {
+  id           String   @id @default(uuid())
+  posterLink   String?  @default("https://via.placeholder.com/180x270?text=No+Image")
+  seriesTitle  String
+  releasedYear Int?
+  certificate  String?
+  runtime      String?
+  genre        String   // guardado como texto separado por vírgula
+  imdbRating   Float?
+  overview     String?
+  metaScore    Float?
+  director     String?
+  star1        String?
+  star2        String?
+  star3        String?
+  star4        String?
+  noOfVotes    Int?
+  gross        String?  // mantém como texto, pode conter vírgulas
+}
