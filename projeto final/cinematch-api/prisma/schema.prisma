@@ -14,7 +14,7 @@ generator client {
 model Movie {
   id           String   @id @default(uuid())
   posterLink   String?  @default("https://via.placeholder.com/180x270?text=No+Image")
-  seriesTitle  String
+  seriesTitle  String?
   releasedYear Int?
   certificate  String?
   runtime      String?

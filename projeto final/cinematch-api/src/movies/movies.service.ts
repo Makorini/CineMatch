@@ -11,9 +11,23 @@ export class MoviesService {
     return this.prisma.movie.findMany();
   }
 
-  async create(data: CreateMovieDto): Promise<Movie> {
-    return this.prisma.movie.create({ data });
-  }
+async create(data: CreateMovieDto): Promise<Movie> {
+  return this.prisma.movie.create({
+    data: {
+      seriesTitle: data.seriesTitle || "",
+      genre: data.genre || "",
+      director: data.director || "",
+      runtime: data.runtime || "",
+      releasedYear: data.releasedYear || 0, // ou algum valor padrão
+      posterLink: data.posterLink || "",
+      certificate: data.certificate || "",
+      imdbRating: data.imdbRating || 0,
+      overview: data.overview || "",
+      metaScore: data.metaScore || 0,
+      gross: data.gross || "",
+    },
+  });
+}
 
   async update(id: string, data: Partial<CreateMovieDto>): Promise<Movie> {
     return this.prisma.movie.update({
