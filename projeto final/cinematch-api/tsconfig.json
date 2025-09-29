@@ -20,6 +20,17 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "target": "ES2020",             // ou ES2015/ES6
+    "module": "NodeNext",           // precisa combinar com moduleResolution
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2020", "DOM"],       // garante métodos modernos de Array e DOM
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
