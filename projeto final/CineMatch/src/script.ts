@@ -10,7 +10,7 @@ document.getElementById("preferences-form")?.addEventListener("submit", function
     const year = (document.getElementById('year') as HTMLInputElement).value;
     const director = (document.getElementById('director') as HTMLInputElement).value;
 
-    fetch("http://localhost:3002/movies")
+    fetch("https://cinematch-0iyy.onrender.com/movies")
         .then(res => res.json())
         .then((movies: any[]) => {
             allMovies = movies;
@@ -125,7 +125,7 @@ function addMovie() {
     };
 
 
-    fetch('http://localhost:3002/movies', {
+    fetch('https://cinematch-0iyy.onrender.com/movies', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(movieData),
@@ -185,7 +185,7 @@ function updateMovie(id: number) {
 
     const movieData = { seriesTitle, director, genre, runtime, releasedYear, posterLink };
 
-    fetch(`http://localhost:3002/movies/${id}`, {
+    fetch(`https://cinematch-0iyy.onrender.com/movies/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(movieData),
@@ -206,7 +206,7 @@ function updateMovie(id: number) {
 function deleteMovie(id: number) {
     if (!confirm('Tem certeza que deseja excluir este filme?')) return;
 
-    fetch(`http://localhost:3002/movies/${id}`, { method: 'DELETE' })
+    fetch(`https://cinematch-0iyy.onrender.com/movies/${id}`, { method: 'DELETE' })
         .then(res => res.json())
         .then(data => {
             console.log('Filme excluído:', data);
