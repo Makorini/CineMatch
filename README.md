@@ -21,3 +21,5 @@ Instruções para rodar o projeto:
 -Abra o backend na pasta cinematch-api e no terminal rode o primeiro o comando "npm i", depois o comando "npm run start" (é necessário manter os dois abertos, então use dois terminais diferentes)
 
 -Caso Allana: Para o funcionamento no meu notebook, foi necessário a execução do comando "Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass" nas duas pastas acima toda vez que o site for executado
+
+Link do Youtube: https://youtu.be/G0Wrkv0AChA
